@@ -8,6 +8,6 @@ public class TestMain
 		Swiggie.INSTANCE.setUseSwiggieDebugging(true);
 		Swiggie.INSTANCE.useGL().arm();
 
-		SwWindow.acquire("A Random Window", 300, 300).collateChildren().show();
+		SwWindow.acquire("A Random Window", 300, 300).onClose(SwWindow.SwWindowOnClose.EXIT).collateChildren().show();
 	}
 }

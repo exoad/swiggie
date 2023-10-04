@@ -1,5 +1,7 @@
 package pkg.exoad.swiggie;
 
+import pkg.exoad.swiggie.intf.SwSwappable;
+
 public class Size
 	implements
 		SwSwappable

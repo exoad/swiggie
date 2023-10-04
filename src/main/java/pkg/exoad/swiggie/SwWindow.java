@@ -12,6 +12,21 @@ import java.util.HashMap;
 @SwTopLayerComponent
 public class SwWindow
 {
+	public enum SwWindowOnClose
+	{
+		NOTHING(WindowConstants.DO_NOTHING_ON_CLOSE),
+		HIDE(WindowConstants.HIDE_ON_CLOSE),
+		DISPOSE(WindowConstants.DISPOSE_ON_CLOSE),
+		EXIT(WindowConstants.EXIT_ON_CLOSE);
+
+		final int value;
+
+		SwWindowOnClose(int internalValue)
+		{
+			value = internalValue;
+		}
+	}
+
 	private JFrame _internal;
 	private SwPane _pane;
 
@@ -63,6 +78,12 @@ public class SwWindow
 		return this;
 	}
 
+	@SwIntendedCascade public SwWindow onClose(SwWindowOnClose suppliedOperation)
+	{
+		_internal.setDefaultCloseOperation(suppliedOperation.value);
+		return this;
+	}
+
 	public void show()
 	{
 		_internal.setVisible(true);
@@ -86,4 +107,10 @@ public class SwWindow
 		_internal.setLocationRelativeTo(null);
 		return this;
 	}
+
+	@SwIntendedCascade public SwWindow onWindowEvent()
+	{
+		return this;
+	}
+
 }
