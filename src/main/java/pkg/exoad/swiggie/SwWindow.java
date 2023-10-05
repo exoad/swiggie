@@ -7,7 +7,6 @@ import pkg.exoad.swiggie.dirt.SwRequiredParam;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.HashMap;
 
 @SwTopLayerComponent
 public class SwWindow
@@ -30,8 +29,6 @@ public class SwWindow
 	private JFrame _internal;
 	private SwPane _pane;
 
-	private HashMap<String, ? extends Number> _properties;
-
 	public static SwWindow acquire(@NotNull String windowName, @NotNull Integer width, @NotNull Integer height)
 	{
 		return new SwWindow(windowName, width, height);
@@ -44,18 +41,16 @@ public class SwWindow
 	{
 		_Internals.log(_Internals.Logging.INIT, "SwWindow: \"" + windowName + "," + width + "," + height + "\"");
 		_internal = new JFrame();
-		_internal.setName(windowName);
+		_internal.setTitle(windowName);
 		_internal.getContentPane().setLayout(new BorderLayout());
 		_internal.setPreferredSize(new Dimension(width, height));
 
 		_pane = new SwPane();
-
-		_properties = new HashMap<>();
 	}
 
-	@SwIntendedCascade public SwWindow withName(String name)
+	@SwIntendedCascade public SwWindow withTitle(String name)
 	{
-		_internal.setName(name);
+		_internal.setTitle(name);
 		return this;
 	}
 
