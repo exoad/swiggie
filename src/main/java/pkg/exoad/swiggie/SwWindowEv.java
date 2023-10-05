@@ -9,8 +9,17 @@ import java.util.Optional;
 
 public class SwWindowEv
 	implements
-		SwEventPayload<SwWindowEv.SwEventType, SwWindow>
+		SwEventPayload<SwWindowEv.SwEventType, Object>
 {
+	@Nullable public static SwEventType acquire(int awtWindowEvent)
+	{
+		SwEventType ty = null;
+		for(SwEventType e : SwEventType.values())
+			if(e.awtPayload == awtWindowEvent)
+				ty = e;
+		return ty;
+	}
+
 	public enum SwEventType
 	{
 		OPENED(WindowEvent.WINDOW_OPENED),
@@ -23,7 +32,7 @@ public class SwWindowEv
 		GAINED_FOCUS(WindowEvent.WINDOW_GAINED_FOCUS),
 		LOST_FOCUS(WindowEvent.WINDOW_LOST_FOCUS);
 
-		final int awtPayload;
+		public final int awtPayload;
 
 		SwEventType(int payload)
 		{
@@ -31,7 +40,7 @@ public class SwWindowEv
 		}
 	}
 
-	public static WeakReference<SwWindowEv> invoke(SwWindow source, SwEventType oldEvent, SwEventType newEvent)
+	public static WeakReference<SwWindowEv> invoke(Object source, SwEventType oldEvent, SwEventType newEvent)
 	{
 		return new WeakReference<>(new SwWindowEv(source, oldEvent, newEvent));
 	}
@@ -46,16 +55,16 @@ public class SwWindowEv
 		return new SwWindowEv(oldEvent, newEvent);
 	}
 
-	public static SwWindowEv invokeStrong(SwWindow source, SwEventType oldEvent, SwEventType newEvent)
+	public static SwWindowEv invokeStrong(Object source, SwEventType oldEvent, SwEventType newEvent)
 	{
 		return new SwWindowEv(source, oldEvent, newEvent);
 	}
 
-	@Nullable private final SwWindow source;
+	@Nullable private final Object source;
 	private final SwEventType oldEvent;
 	private final SwEventType newEvent;
 
-	private SwWindowEv(@Nullable SwWindow source, SwEventType oldEvent, SwEventType newEvent)
+	private SwWindowEv(@Nullable Object source, SwEventType oldEvent, SwEventType newEvent)
 	{
 		this.source = source;
 		this.oldEvent = oldEvent;
@@ -67,7 +76,7 @@ public class SwWindowEv
 		this(null, oldEvent, newEvent);
 	}
 
-	@Nullable @Override public Optional<SwWindow> source()
+	@Nullable @Override public Optional<Object> source()
 	{
 		return Optional.ofNullable(source);
 	}
