@@ -5,12 +5,13 @@ public class TestMain
 {
 	public static void main(String[] args)
 	{
-		Swiggie.INSTANCE.setUseSwiggieDebugging(true);
-		Swiggie.INSTANCE.useGL()
-		                .arm();
+		Swiggie.get()
+		       .useSwiggieLogging(true)
+		       .useGLHeavy()
+		       .arm();
 		SwWindow.acquire()
-				.withTitle("Swiggie Test")
-				.withPreferredSized(800, 1050)
+		        .withTitle("Swiggie Test")
+		        .withPreferredSized(800, 1050)
 		        .onClose(SwWindow.SwWindowOnClose.EXIT)
 		        .collateChildren()
 		        .showComponent();

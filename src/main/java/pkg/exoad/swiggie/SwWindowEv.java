@@ -8,14 +8,14 @@ import java.lang.ref.WeakReference;
 import java.util.Optional;
 
 public class SwWindowEv
-	implements
+		implements
 		SwEventPayload<SwWindowEv.SwEventType, Object>
 {
 	@Nullable public static SwEventType acquire(int awtWindowEvent)
 	{
 		SwEventType ty = null;
-		for(SwEventType e : SwEventType.values())
-			if(e.awtPayload == awtWindowEvent)
+		for (SwEventType e : SwEventType.values())
+			if (e.awtPayload == awtWindowEvent)
 				ty = e;
 		return ty;
 	}

@@ -12,7 +12,7 @@ final class _Internals
 
 	public static void log(Logging key, String content)
 	{
-		if(Swiggie.INSTANCE.getUseSwiggieDebugging())
+		if(Swiggie.get().isSwiggieLogging())
 			_Pre._stream.println("[" + key.name() + "]\t> " + content);
 	}
 }

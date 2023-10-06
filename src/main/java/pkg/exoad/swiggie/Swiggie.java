@@ -55,6 +55,11 @@ public final class Swiggie
 		return this;
 	}
 
+	public boolean isSwiggieLogging()
+	{
+		return Boolean.parseBoolean((String) launchFlags.get("swiggie.useSwiggieLogging"));
+	}
+
 	public Swiggie arm()
 	{
 		launchFlags.forEach((k, v) -> System.setProperty(k, v.toString()));
