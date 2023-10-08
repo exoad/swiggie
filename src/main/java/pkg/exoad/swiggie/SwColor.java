@@ -6,6 +6,11 @@ import pkg.exoad.swiggie.stx.SwClampedValue;
 public class SwColor
 	implements SwArithmetic<SwColor>
 {
+	public static SwClampedValue<Integer> acquireRGBACompliant(int value)
+	{
+		return SwClampedValue.acquireValue(value, MIN_VALUE, MAX_VALUE);
+	}
+
 	public static SwColor acquire(int r, int g, int b)
 	{
 		return new SwColor(r, g, b, MAX_VALUE);
@@ -50,9 +55,9 @@ public class SwColor
 				((blue.getValue() & 0xFF));
 	}
 
-	private SwColor(int rgb)
+	private SwColor(int rgba)
 	{
-
+		this.alpha = SwClampedValue.acquireValue()
 	}
 
 	public int getRed()

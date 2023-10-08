@@ -45,6 +45,8 @@ import pkg.exoad.swiggie.intf.SwSwappable;
 
 	protected SwClamped(@NotNull T lower, @NotNull T upper)
 	{
+		if(lower.compareTo(upper) > 0)
+
 		this.lower = lower;
 		this.upper = upper;
 	}
