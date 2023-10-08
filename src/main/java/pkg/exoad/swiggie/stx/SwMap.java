@@ -12,6 +12,14 @@ public class SwMap<K, V>
 			consumer.call(get(key));
 	}
 
+	public void onKeyExistAndOrElse(K key, SwCallback<Boolean, V> condition, SwVoidCallback<V> consumer)
+	{
+		onKeyExist(key, e -> {
+			if (condition.call(e))
+				consumer.call(e);
+		});
+	}
+
 	public Optional<V> onKeyEmpty(K key)
 	{
 		if (containsKey(key))

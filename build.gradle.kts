@@ -1,29 +1,47 @@
 plugins {
-    id("java")
-    kotlin("jvm") version "1.9.20-Beta2"
+	id("java")
+	kotlin("jvm") version "1.9.20-Beta2"
 }
 
-group = "pkg.exoad"
-version = "1.0-SNAPSHOT"
+group="pkg.exoad"
+version="1.0-SNAPSHOT"
 
 repositories {
-    mavenCentral()
+	mavenCentral()
 }
 
 dependencies {
-    implementation("org.jetbrains:annotations:24.0.0")
-    testImplementation(platform("org.junit:junit-bom:5.9.1"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
-    implementation(kotlin("stdlib-jdk8"))
-    compileOnly("org.projectlombok:lombok:1.18.30")
-    annotationProcessor("org.projectlombok:lombok:1.18.30")
-    testCompileOnly("org.projectlombok:lombok:1.18.30")
-    testAnnotationProcessor("org.projectlombok:lombok:1.18.30")
+	implementation("org.jetbrains:annotations:24.0.0")
+	testImplementation(platform("org.junit:junit-bom:5.9.1"))
+	testImplementation("org.junit.jupiter:junit-jupiter")
+	implementation(kotlin("stdlib-jdk8"))
+	compileOnly("org.projectlombok:lombok:1.18.30")
+	annotationProcessor("org.projectlombok:lombok:1.18.30")
+	testCompileOnly("org.projectlombok:lombok:1.18.30")
+	testAnnotationProcessor("org.projectlombok:lombok:1.18.30")
+	compileOnly("org.jogamp.gluegen:gluegen-rt:2.3.1")
+	compileOnly("org.jogamp.jogl:jogl-all:2.3.1")
+	runtimeOnly("org.jogamp.gluegen:gluegen-rt:2.3.1:natives-android-aarch64")
+	runtimeOnly("org.jogamp.gluegen:gluegen-rt:2.3.1:natives-android-armv6")
+	runtimeOnly("org.jogamp.gluegen:gluegen-rt:2.3.1:natives-linux-amd64")
+	runtimeOnly("org.jogamp.gluegen:gluegen-rt:2.3.1:natives-linux-armv6")
+	runtimeOnly("org.jogamp.gluegen:gluegen-rt:2.3.1:natives-linux-armv6hf")
+	runtimeOnly("org.jogamp.gluegen:gluegen-rt:2.3.1:natives-linux-i586")
+	runtimeOnly("org.jogamp.gluegen:gluegen-rt:2.3.1:natives-macosx-universal")
+	runtimeOnly("org.jogamp.gluegen:gluegen-rt:2.3.1:natives-windows-amd64")
+	runtimeOnly("org.jogamp.gluegen:gluegen-rt:2.3.1:natives-windows-i586")
+	runtimeOnly("org.jogamp.jogl:jogl-all:2.3.1:natives-linux-amd64")
+	runtimeOnly("org.jogamp.jogl:jogl-all:2.3.1:natives-linux-armv6")
+	runtimeOnly("org.jogamp.jogl:jogl-all:2.3.1:natives-linux-armv6hf")
+	runtimeOnly("org.jogamp.jogl:jogl-all:2.3.1:natives-linux-i586")
+	runtimeOnly("org.jogamp.jogl:jogl-all:2.3.1:natives-macosx-universal")
+	runtimeOnly("org.jogamp.jogl:jogl-all:2.3.1:natives-windows-amd64")
+	runtimeOnly("org.jogamp.jogl:jogl-all:2.3.1:natives-windows-i586")
 }
 
 tasks.test {
-    useJUnitPlatform()
+	useJUnitPlatform()
 }
 kotlin {
-    jvmToolchain(17)
+	jvmToolchain(17)
 }

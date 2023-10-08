@@ -1,5 +1,6 @@
 package pkg.exoad.swiggie;
 
+import pkg.exoad.swiggie.err.SwNonCompliantValuesException;
 import pkg.exoad.swiggie.stx.SwMap;
 
 import java.util.Optional;
@@ -10,7 +11,7 @@ public final class Swiggie
 
 	public static Swiggie get()
 	{
-		if(instance == null)
+		if (instance == null)
 			instance = new Swiggie();
 		return instance;
 	}
@@ -51,7 +52,14 @@ public final class Swiggie
 
 	public Swiggie useGLHeavy()
 	{
-		launchFlags.put("sun.java2d.opengl", "True");
+		if (launchFlags.containsKey("sun.java2d.opengl") && launchFlags.get("sun.java2d.opengl")
+		                                                               .toString()
+		                                                               .equalsIgnoreCase("true"))
+			SwLog.getLogger()
+			     .emitError(SwNonCompliantValuesException.class,
+					     "You cannot use the Java2D OpenGL inconjunction with the custom OpenGL wrapper. Make sure you are not calling useGL() and useGLHeavy() together!");
+		else
+			launchFlags.put("swiggie.useHeavyGL", "true");
 		return this;
 	}
 
@@ -65,6 +73,5 @@ public final class Swiggie
 		launchFlags.forEach((k, v) -> System.setProperty(k, v.toString()));
 		return this;
 	}
-
 
 }

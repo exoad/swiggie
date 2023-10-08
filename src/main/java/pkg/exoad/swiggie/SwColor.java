@@ -11,14 +11,27 @@ public class SwColor
 		return SwClampedValue.acquireValue(value, MIN_VALUE, MAX_VALUE);
 	}
 
-	public static SwColor acquire(int r, int g, int b)
+	public static SwColor acquireFromRGB(int r, int g, int b)
 	{
 		return new SwColor(r, g, b, MAX_VALUE);
+	}
+
+	public static SwColor acquireFromRGB(int rgb)
+	{
+		int red = (rgb >> 16) & 0xFF;
+		int green = (rgb >> 8) & 0xFF;
+		int blue = rgb & 0xFF;
+		return SwColor.acquireFromRGB(red, green, blue);
 	}
 
 	public static SwColor acquireFromARGB(int argb)
 	{
 		return new SwColor(argb);
+	}
+
+	public static SwColor acquireFromRGBA(int r, int g, int b, int a)
+	{
+		return new SwColor(r, g, b, a);
 	}
 
 	public static int MAX_VALUE = 255;
@@ -126,6 +139,12 @@ public class SwColor
 	public float normalizeAlpha()
 	{
 		return alpha.getValue() / (float) MAX_VALUE;
+	}
+
+	public float[] asFloatArray()
+	{
+		return new float[] { red.getValue() / 255F, green.getValue() / 255F, blue.getValue() / 255F,
+				alpha.getValue() / 255F };
 	}
 
 	@Override public SwColor add(SwColor other)

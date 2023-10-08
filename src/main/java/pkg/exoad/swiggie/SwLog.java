@@ -50,6 +50,12 @@ import java.lang.reflect.InvocationTargetException;
 		errors.setValue(errors.getValue() + 1);
 	}
 
+	public void emitErrorOn(boolean condition, Class<? extends RuntimeException> ref, String reason)
+	{
+		if (condition)
+			emitError(ref, reason);
+	}
+
 	private PrintStream stream;
 	@Nullable private OutputStream otherStream;
 
