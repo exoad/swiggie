@@ -3,6 +3,8 @@ package pkg.exoad.swiggie.stx;
 import lombok.Getter;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
+import pkg.exoad.swiggie.SwLog;
+import pkg.exoad.swiggie.err.SwNonCompliantValuesException;
 import pkg.exoad.swiggie.intf.SwPipelineMember;
 import pkg.exoad.swiggie.intf.SwSwappable;
 
@@ -45,8 +47,8 @@ import pkg.exoad.swiggie.intf.SwSwappable;
 
 	protected SwClamped(@NotNull T lower, @NotNull T upper)
 	{
-		if(lower.compareTo(upper) > 0)
-
+		if(lower.compareTo(upper) > 0) // the lower is greater than the upper
+			SwLog.getLogger().emitError(SwNonCompliantValuesException.class, "The lower bound CANNOT be greater than the upper bound");
 		this.lower = lower;
 		this.upper = upper;
 	}

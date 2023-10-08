@@ -4,7 +4,7 @@ import pkg.exoad.swiggie.intf.SwArithmetic;
 import pkg.exoad.swiggie.stx.SwClampedValue;
 
 public class SwColor
-	implements SwArithmetic<SwColor>
+		implements SwArithmetic<SwColor>
 {
 	public static SwClampedValue<Integer> acquireRGBACompliant(int value)
 	{
@@ -16,28 +16,33 @@ public class SwColor
 		return new SwColor(r, g, b, MAX_VALUE);
 	}
 
+	public static SwColor acquireFromARGB(int argb)
+	{
+		return new SwColor(argb);
+	}
+
 	public static int MAX_VALUE = 255;
 	public static int MIN_VALUE = 0;
 
-	private SwClampedValue<Integer> red;   // n / 255
-	private SwClampedValue<Integer> green; // n / 255
-	private SwClampedValue<Integer> blue;  // n / 255
-	private SwClampedValue<Integer> alpha; // n / 255
+	private final SwClampedValue<Integer> red;   // n / 255
+	private final SwClampedValue<Integer> green; // n / 255
+	private final SwClampedValue<Integer> blue;  // n / 255
+	private final SwClampedValue<Integer> alpha; // n / 255
 
 	private SwColor()
 	{
-		red = SwClampedValue.acquireValue(0, MIN_VALUE, MAX_VALUE);
-		green = SwClampedValue.acquireValue(0, MIN_VALUE, MAX_VALUE);
-		blue = SwClampedValue.acquireValue(0, MIN_VALUE, MAX_VALUE);
-		alpha = SwClampedValue.acquireValue(0, MIN_VALUE, MAX_VALUE);
+		red = acquireRGBACompliant(0);
+		green = acquireRGBACompliant(0);
+		blue = acquireRGBACompliant(0);
+		alpha = acquireRGBACompliant(0);
 	}
 
 	private SwColor(int r, int g, int b, int a)
 	{
-		this.red = SwClampedValue.acquireValue(r, MIN_VALUE, MAX_VALUE);
-		this.green = SwClampedValue.acquireValue(g, MIN_VALUE, MAX_VALUE);
-		this.blue = SwClampedValue.acquireValue(b, MIN_VALUE, MAX_VALUE);
-		this.alpha = SwClampedValue.acquireValue(a, MIN_VALUE, MAX_VALUE);
+		this.red = acquireRGBACompliant(r);
+		this.green = acquireRGBACompliant(g);
+		this.blue = acquireRGBACompliant(b);
+		this.alpha = acquireRGBACompliant(a);
 	}
 
 	public int getRGBA()
@@ -55,9 +60,12 @@ public class SwColor
 				((blue.getValue() & 0xFF));
 	}
 
-	private SwColor(int rgba)
+	private SwColor(int argb)
 	{
-		this.alpha = SwClampedValue.acquireValue()
+		this.alpha = acquireRGBACompliant((argb >> 24) & 0xFF);
+		this.red = acquireRGBACompliant((argb >> 16) & 0xFF);
+		this.green = acquireRGBACompliant((argb >> 8) & 0xFF);
+		this.blue = acquireRGBACompliant(argb & 0xFF);
 	}
 
 	public int getRed()
@@ -78,6 +86,26 @@ public class SwColor
 	public int getAlpha()
 	{
 		return alpha.getValue();
+	}
+
+	public void setRed(int red)
+	{
+		this.red.apply1(red);
+	}
+
+	public void setGreen(int green)
+	{
+		this.green.apply1(green);
+	}
+
+	public void setBlue(int blue)
+	{
+		this.blue.apply1(blue);
+	}
+
+	public void setAlpha(int alpha)
+	{
+		this.alpha.apply1(alpha);
 	}
 
 	public float normalizeGreen()
