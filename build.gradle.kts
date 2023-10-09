@@ -42,7 +42,7 @@ dependencies {
 	runtimeOnly("org.jogamp.jogl:jogl-all:2.3.1:natives-macosx-universal")
 	runtimeOnly("org.jogamp.jogl:jogl-all:2.3.1:natives-windows-amd64")
 	runtimeOnly("org.jogamp.jogl:jogl-all:2.3.1:natives-windows-i586")
-	runtimeOnly("com.formdev.flatlaf:3.2.1")
+	runtimeOnly("com.formdev:flatlaf:3.2.1")
 	runtimeOnly("com.formdev:flatlaf-intellij-themes:3.2.1")
 }
 
