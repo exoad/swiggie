@@ -1,4 +1,4 @@
-package pkg.exoad.swiggie.tools.defs
+package pkg.exoad.swiggie.tools
 
 @Target(AnnotationTarget.TYPE, AnnotationTarget.CLASS)
 @Retention(AnnotationRetention.RUNTIME)

@@ -1,4 +1,4 @@
-package pkg.exoad.swiggie
+package pkg.exoad.swiggie.intf
 
 import java.util.*
 

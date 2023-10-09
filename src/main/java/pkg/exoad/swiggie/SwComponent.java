@@ -1,6 +1,6 @@
 package pkg.exoad.swiggie;
 
-import pkg.exoad.swiggie.tools.defs.SwLayeredComponent;
+import pkg.exoad.swiggie.tools.SwLayeredComponent;
 
 import javax.swing.*;
 

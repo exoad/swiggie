@@ -1,7 +1,7 @@
 package pkg.exoad.swiggie.stx
 
 import pkg.exoad.swiggie.intf.SwSwappable
-import pkg.exoad.swiggie.tools.defs.SwUnsafe
+import pkg.exoad.swiggie.tools.SwUnsafe
 import java.lang.ref.WeakReference
 
 class SwPair<A:Any , B> private constructor(private var first:A , private var second:B):SwSwappable

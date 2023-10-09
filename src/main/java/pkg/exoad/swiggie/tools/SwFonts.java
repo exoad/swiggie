@@ -28,5 +28,29 @@ public final class SwFonts
 	{
 		return FontWeight.W700;
 	}
+
+	public enum FontDecoration
+	{
+		NONE,
+		UNDERLINE,
+		STRIKE_THROUGH
+	}
+
+	public enum FontStyle
+	{
+		PLAIN,
+		BOLD,
+		ITALIC,
+		BOLD_ITALIC
+	}
+
+	public enum TextAlignment
+	{
+		LEFT,
+		CENTER,
+		RIGHT,
+		JUSTIFY
+	}
+
 }
 

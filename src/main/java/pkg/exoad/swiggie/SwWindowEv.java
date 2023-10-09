@@ -2,6 +2,7 @@ package pkg.exoad.swiggie;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import pkg.exoad.swiggie.intf.SwEventPayload;
 
 import java.awt.event.WindowEvent;
 import java.lang.ref.WeakReference;

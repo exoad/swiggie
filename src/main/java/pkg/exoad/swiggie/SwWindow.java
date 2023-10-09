@@ -5,7 +5,7 @@ import pkg.exoad.swiggie.dirt.SwIntendedCascade;
 import pkg.exoad.swiggie.dirt.SwOptionalParam;
 import pkg.exoad.swiggie.dirt.SwRequiredParam;
 import pkg.exoad.swiggie.stx.SwVoidCallback;
-import pkg.exoad.swiggie.tools.defs.SwTopLayerComponent;
+import pkg.exoad.swiggie.tools.SwTopLayerComponent;
 
 import javax.swing.*;
 import java.awt.*;
