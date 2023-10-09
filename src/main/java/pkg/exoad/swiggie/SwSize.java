@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import pkg.exoad.swiggie.err.SwNonCompliantValuesException;
 import pkg.exoad.swiggie.intf.SwSwappable;
+import pkg.exoad.swiggie.tools.SwLog;
 
 @Getter @Setter public class SwSize
 		implements

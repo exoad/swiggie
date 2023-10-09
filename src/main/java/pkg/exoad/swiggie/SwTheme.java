@@ -1,6 +1,7 @@
 package pkg.exoad.swiggie;
 
-public class SwTheme
+public final class SwTheme
 {
-	
+
+
 }

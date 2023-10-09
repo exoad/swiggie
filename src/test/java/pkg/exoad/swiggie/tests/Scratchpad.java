@@ -1,7 +1,9 @@
+package pkg.exoad.swiggie.tests;
+
 import pkg.exoad.swiggie.SwWindow;
 import pkg.exoad.swiggie.Swiggie;
 
-public class TestMain
+public class Scratchpad
 {
 	public static void main(String[] args)
 	{

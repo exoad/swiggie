@@ -1,4 +1,4 @@
-package pkg.exoad.swiggie;
+package pkg.exoad.swiggie.tools;
 
 import lombok.Getter;
 import lombok.NonNull;

@@ -3,10 +3,10 @@ package pkg.exoad.swiggie.stx;
 import lombok.Getter;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
-import pkg.exoad.swiggie.SwLog;
 import pkg.exoad.swiggie.err.SwNonCompliantValuesException;
 import pkg.exoad.swiggie.intf.SwPipelineMember;
 import pkg.exoad.swiggie.intf.SwSwappable;
+import pkg.exoad.swiggie.tools.SwLog;
 
 @Getter public class SwClamped<T extends Comparable<T>>
 	implements

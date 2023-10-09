@@ -2,6 +2,7 @@ package pkg.exoad.swiggie;
 
 import pkg.exoad.swiggie.err.SwNonCompliantValuesException;
 import pkg.exoad.swiggie.stx.SwMap;
+import pkg.exoad.swiggie.tools.SwLog;
 
 import java.util.Optional;
 
