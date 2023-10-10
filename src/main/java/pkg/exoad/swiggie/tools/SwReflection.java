@@ -11,6 +11,14 @@ public final class SwReflection
 	{
 	}
 
+	/**
+	 * Get all classes in a package
+	 *
+	 * @param packageName The package name
+	 * @return All classes in the package
+	 * @throws IOException            If the package is not found
+	 * @throws ClassNotFoundException If the class is not found
+	 */
 	public static ArrayList<Class<?>> getClassesInPackage(String packageName)
 			throws
 			IOException,

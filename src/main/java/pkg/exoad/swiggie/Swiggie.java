@@ -24,16 +24,33 @@ public final class Swiggie
 		launchFlags = new SwMap<>();
 	}
 
+	/**
+	 * Gets the current rolling version (Starts from 1
+	 *
+	 * @return The current version
+	 */
 	public long getVersion()
 	{
 		return 1L;
 	}
 
+	/**
+	 * The date of the current version
+	 *
+	 * @return The date of the current version
+	 * @see #getVersion()
+	 */
 	public long getVersionDate()
 	{
 		return 2023_09_30L;
 	}
 
+	/**
+	 * Get all launch flags from the pre launch dictionary
+	 *
+	 * @param key The key to get the value from
+	 * @return The value of the key
+	 */
 	public Optional<Object> getLaunchFlag(String key)
 	{
 		return launchFlags.onKeyEmpty(key);
@@ -48,6 +65,11 @@ public final class Swiggie
 		return this;
 	}
 
+	/**
+	 * Use the inbuilt Java2D supplied OpenGL. This is not as stable.
+	 *
+	 * @return The Swiggie instance
+	 */
 	public Swiggie useGL()
 	{
 		launchFlags.put(
@@ -57,6 +79,11 @@ public final class Swiggie
 		return this;
 	}
 
+	/**
+	 * Use a more hardware accelerated OpenGL Wrapper for Java2D. This is more stable.
+	 *
+	 * @return The Swiggie instance
+	 */
 	public Swiggie useGLHeavy()
 	{
 		if (launchFlags.containsKey("sun.java2d.opengl") && launchFlags.get("sun.java2d.opengl")
@@ -75,11 +102,19 @@ public final class Swiggie
 		return this;
 	}
 
+	/**
+	 * Whether Swiggie is using a logging framework for debugging purposes
+	 * @return Whether Swiggie is using a logging framework for debugging purposes
+	 */
 	public boolean isSwiggieLogging()
 	{
 		return Boolean.parseBoolean((String) launchFlags.get("swiggie.useSwiggieLogging"));
 	}
 
+	/**
+	 * Applies all launch flags to the JVM and the Swiggie framework
+	 * @return The Swiggie instance
+	 */
 	public Swiggie arm()
 	{
 		launchFlags.forEach((k, v) -> System.setProperty(

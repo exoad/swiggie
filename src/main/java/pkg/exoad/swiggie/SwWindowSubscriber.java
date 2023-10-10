@@ -2,7 +2,6 @@ package pkg.exoad.swiggie;
 
 import lombok.Getter;
 import lombok.NonNull;
-import pkg.exoad.swiggie.dirt.SwIntendedCascade;
 import pkg.exoad.swiggie.intf.SwVoidCallback;
 import pkg.exoad.swiggie.stx.SwMap;
 
@@ -30,9 +29,10 @@ public class SwWindowSubscriber
 				listeners.onKeyExist(
 						SwWindowEv.SwEventType.OPENED,
 						r -> r.call(
-								SwWindowEv.invokeStrong(e.getSource(),
-								                        SwWindowEv.acquire(e.getOldState()),
-								                        SwWindowEv.acquire(e.getNewState())
+								SwWindowEv.invokeStrong(
+										e.getSource(),
+										SwWindowEv.acquire(e.getOldState()),
+										SwWindowEv.acquire(e.getNewState())
 								))
 				);
 			}
@@ -42,9 +42,10 @@ public class SwWindowSubscriber
 				listeners.onKeyExist(
 						SwWindowEv.SwEventType.CLOSING,
 						r -> r.call(
-								SwWindowEv.invokeStrong(e.getSource(),
-								                        SwWindowEv.acquire(e.getOldState()),
-								                        SwWindowEv.acquire(e.getNewState())
+								SwWindowEv.invokeStrong(
+										e.getSource(),
+										SwWindowEv.acquire(e.getOldState()),
+										SwWindowEv.acquire(e.getNewState())
 								))
 				);
 			}
@@ -54,9 +55,10 @@ public class SwWindowSubscriber
 				listeners.onKeyExist(
 						SwWindowEv.SwEventType.CLOSED,
 						r -> r.call(
-								SwWindowEv.invokeStrong(e.getSource(),
-								                        SwWindowEv.acquire(e.getOldState()),
-								                        SwWindowEv.acquire(e.getNewState())
+								SwWindowEv.invokeStrong(
+										e.getSource(),
+										SwWindowEv.acquire(e.getOldState()),
+										SwWindowEv.acquire(e.getNewState())
 								))
 				);
 			}
@@ -66,9 +68,10 @@ public class SwWindowSubscriber
 				listeners.onKeyExist(
 						SwWindowEv.SwEventType.ICONIFED,
 						r -> r.call(
-								SwWindowEv.invokeStrong(e.getSource(),
-								                        SwWindowEv.acquire(e.getOldState()),
-								                        SwWindowEv.acquire(e.getNewState())
+								SwWindowEv.invokeStrong(
+										e.getSource(),
+										SwWindowEv.acquire(e.getOldState()),
+										SwWindowEv.acquire(e.getNewState())
 								))
 				);
 			}
@@ -78,9 +81,10 @@ public class SwWindowSubscriber
 				listeners.onKeyExist(
 						SwWindowEv.SwEventType.DEICONIFIED,
 						r -> r.call(
-								SwWindowEv.invokeStrong(e.getSource(),
-								                        SwWindowEv.acquire(e.getOldState()),
-								                        SwWindowEv.acquire(e.getNewState())
+								SwWindowEv.invokeStrong(
+										e.getSource(),
+										SwWindowEv.acquire(e.getOldState()),
+										SwWindowEv.acquire(e.getNewState())
 								))
 				);
 			}
@@ -90,9 +94,10 @@ public class SwWindowSubscriber
 				listeners.onKeyExist(
 						SwWindowEv.SwEventType.ACTIVATED,
 						r -> r.call(
-								SwWindowEv.invokeStrong(e.getSource(),
-								                        SwWindowEv.acquire(e.getOldState()),
-								                        SwWindowEv.acquire(e.getNewState())
+								SwWindowEv.invokeStrong(
+										e.getSource(),
+										SwWindowEv.acquire(e.getOldState()),
+										SwWindowEv.acquire(e.getNewState())
 								))
 				);
 			}
@@ -102,16 +107,17 @@ public class SwWindowSubscriber
 				listeners.onKeyExist(
 						SwWindowEv.SwEventType.DEACTIVATED,
 						r -> r.call(
-								SwWindowEv.invokeStrong(e.getSource(),
-								                        SwWindowEv.acquire(e.getOldState()),
-								                        SwWindowEv.acquire(e.getNewState())
+								SwWindowEv.invokeStrong(
+										e.getSource(),
+										SwWindowEv.acquire(e.getOldState()),
+										SwWindowEv.acquire(e.getNewState())
 								))
 				);
 			}
 		};
 	}
 
-	@SwIntendedCascade public SwWindowSubscriber listenTo(
+	public SwWindowSubscriber listenTo(
 			@NonNull SwWindowEv.SwEventType type,
 			@NonNull SwVoidCallback<SwWindowEv> listener
 	)
@@ -123,7 +129,7 @@ public class SwWindowSubscriber
 		return this;
 	}
 
-	@SwIntendedCascade public SwWindowSubscriber listenForOpened(@NonNull SwVoidCallback<SwWindowEv> listener)
+	public SwWindowSubscriber listenForOpened(@NonNull SwVoidCallback<SwWindowEv> listener)
 	{
 		listenTo(
 				SwWindowEv.SwEventType.OPENED,
@@ -132,7 +138,7 @@ public class SwWindowSubscriber
 		return this;
 	}
 
-	@SwIntendedCascade public SwWindowSubscriber listenForClosing(@NonNull SwVoidCallback<SwWindowEv> listener)
+	public SwWindowSubscriber listenForClosing(@NonNull SwVoidCallback<SwWindowEv> listener)
 	{
 		listenTo(
 				SwWindowEv.SwEventType.CLOSING,
@@ -141,7 +147,7 @@ public class SwWindowSubscriber
 		return this;
 	}
 
-	@SwIntendedCascade public SwWindowSubscriber listenForClosed(@NonNull SwVoidCallback<SwWindowEv> listener)
+	public SwWindowSubscriber listenForClosed(@NonNull SwVoidCallback<SwWindowEv> listener)
 	{
 		listenTo(
 				SwWindowEv.SwEventType.CLOSED,
@@ -150,7 +156,7 @@ public class SwWindowSubscriber
 		return this;
 	}
 
-	@SwIntendedCascade public SwWindowSubscriber listenForIconified(@NonNull SwVoidCallback<SwWindowEv> listener)
+	public SwWindowSubscriber listenForIconified(@NonNull SwVoidCallback<SwWindowEv> listener)
 	{
 		listenTo(
 				SwWindowEv.SwEventType.ICONIFED,
@@ -159,7 +165,7 @@ public class SwWindowSubscriber
 		return this;
 	}
 
-	@SwIntendedCascade public SwWindowSubscriber listenForDeiconified(@NonNull SwVoidCallback<SwWindowEv> listener)
+	public SwWindowSubscriber listenForDeiconified(@NonNull SwVoidCallback<SwWindowEv> listener)
 	{
 		listenTo(
 				SwWindowEv.SwEventType.DEICONIFIED,
@@ -168,7 +174,7 @@ public class SwWindowSubscriber
 		return this;
 	}
 
-	@SwIntendedCascade public SwWindowSubscriber listenForActivated(@NonNull SwVoidCallback<SwWindowEv> listener)
+	public SwWindowSubscriber listenForActivated(@NonNull SwVoidCallback<SwWindowEv> listener)
 	{
 		listenTo(
 				SwWindowEv.SwEventType.ACTIVATED,
@@ -177,7 +183,7 @@ public class SwWindowSubscriber
 		return this;
 	}
 
-	@SwIntendedCascade public SwWindowSubscriber listenForDeactivated(@NonNull SwVoidCallback<SwWindowEv> listener)
+	public SwWindowSubscriber listenForDeactivated(@NonNull SwVoidCallback<SwWindowEv> listener)
 	{
 		listenTo(
 				SwWindowEv.SwEventType.DEACTIVATED,

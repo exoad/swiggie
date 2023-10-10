@@ -1,9 +1,6 @@
 package pkg.exoad.swiggie;
 
 import org.jetbrains.annotations.NotNull;
-import pkg.exoad.swiggie.dirt.SwIntendedCascade;
-import pkg.exoad.swiggie.dirt.SwOptionalParam;
-import pkg.exoad.swiggie.dirt.SwRequiredParam;
 import pkg.exoad.swiggie.intf.SwVoidCallback;
 
 import javax.swing.*;
@@ -57,9 +54,6 @@ public class SwWindow
 		);
 	}
 
-	@SwRequiredParam(name = "windowName", type = "[char]")
-	@SwOptionalParam(name = "width", type = "i32", defaultCall = "width[]:i32 -> 800;")
-	@SwOptionalParam(name = "height", type = "i32", defaultCall = "height[]:i32 -> 600;")
 	private SwWindow(
 			@NotNull String windowName,
 			int width,
@@ -78,13 +72,13 @@ public class SwWindow
 		_pane = new SwPane();
 	}
 
-	@SwIntendedCascade public SwWindow withTitle(String name)
+	public SwWindow withTitle(String name)
 	{
 		_internal.setTitle(name);
 		return this;
 	}
 
-	@SwIntendedCascade public SwWindow withPreferredSized(
+	public SwWindow withPreferredSized(
 			int width,
 			int height
 	)
@@ -96,7 +90,7 @@ public class SwWindow
 		return this;
 	}
 
-	@SwIntendedCascade public SwWindow withSize(
+	public SwWindow withSize(
 			int width,
 			int height
 	)
@@ -108,38 +102,38 @@ public class SwWindow
 		return this;
 	}
 
-	@SwIntendedCascade public SwWindow withComponent(SwComponent... components)
+	public SwWindow withComponent(SwComponent... components)
 	{
 		for (SwComponent c : components)
 			_pane.add(c);
 		return this;
 	}
 
-	@SwIntendedCascade public SwWindow onClose(SwWindowOnClose suppliedOperation)
+	public SwWindow onClose(SwWindowOnClose suppliedOperation)
 	{
 		_internal.setDefaultCloseOperation(suppliedOperation.value);
 		return this;
 	}
 
-	@SwIntendedCascade public SwWindow showComponent()
+	public SwWindow showComponent()
 	{
 		_internal.setVisible(true);
 		return this;
 	}
 
-	@SwIntendedCascade public SwWindow hideComponent()
+	public SwWindow hideComponent()
 	{
 		_internal.setVisible(false);
 		return this;
 	}
 
-	@SwIntendedCascade public SwWindow setVisibility(boolean visibility)
+	public SwWindow setVisibility(boolean visibility)
 	{
 		_internal.setVisible(visibility);
 		return this;
 	}
 
-	@SwIntendedCascade public SwWindow collateChildren()
+	public SwWindow collateChildren()
 	{
 		_internal.add(
 				_pane,
@@ -150,7 +144,7 @@ public class SwWindow
 		return this;
 	}
 
-	@SwIntendedCascade public SwWindow addWindowEventSubscriber(
+	public SwWindow addWindowEventSubscriber(
 			@NotNull SwWindowEv.SwEventType evenType,
 			@NotNull SwVoidCallback<SwWindowEv> callback
 	)
@@ -164,7 +158,7 @@ public class SwWindow
 		return this;
 	}
 
-	@SwIntendedCascade public SwWindow listenToWindowOpened(@NotNull SwVoidCallback<SwWindowEv> callback)
+	public SwWindow listenToWindowOpened(@NotNull SwVoidCallback<SwWindowEv> callback)
 	{
 		addWindowEventSubscriber(
 				SwWindowEv.SwEventType.OPENED,
@@ -173,7 +167,7 @@ public class SwWindow
 		return this;
 	}
 
-	@SwIntendedCascade public SwWindow listenToWindowClosed(@NotNull SwVoidCallback<SwWindowEv> callback)
+	public SwWindow listenToWindowClosed(@NotNull SwVoidCallback<SwWindowEv> callback)
 	{
 		addWindowEventSubscriber(
 				SwWindowEv.SwEventType.CLOSED,
@@ -182,7 +176,7 @@ public class SwWindow
 		return this;
 	}
 
-	@SwIntendedCascade public SwWindow listenToWindowClosing(@NotNull SwVoidCallback<SwWindowEv> callback)
+	public SwWindow listenToWindowClosing(@NotNull SwVoidCallback<SwWindowEv> callback)
 	{
 		addWindowEventSubscriber(
 				SwWindowEv.SwEventType.CLOSING,
@@ -191,7 +185,7 @@ public class SwWindow
 		return this;
 	}
 
-	@SwIntendedCascade public SwWindow listenToWindowActivated(@NotNull SwVoidCallback<SwWindowEv> callback)
+	public SwWindow listenToWindowActivated(@NotNull SwVoidCallback<SwWindowEv> callback)
 	{
 		addWindowEventSubscriber(
 				SwWindowEv.SwEventType.ACTIVATED,
@@ -200,7 +194,7 @@ public class SwWindow
 		return this;
 	}
 
-	@SwIntendedCascade public SwWindow listenToWindowIconified(@NotNull SwVoidCallback<SwWindowEv> callback)
+	public SwWindow listenToWindowIconified(@NotNull SwVoidCallback<SwWindowEv> callback)
 	{
 		addWindowEventSubscriber(
 				SwWindowEv.SwEventType.ICONIFED,
@@ -209,7 +203,7 @@ public class SwWindow
 		return this;
 	}
 
-	@SwIntendedCascade public SwWindow listenToWindowDeiconified(@NotNull SwVoidCallback<SwWindowEv> callback)
+	public SwWindow listenToWindowDeiconified(@NotNull SwVoidCallback<SwWindowEv> callback)
 	{
 		addWindowEventSubscriber(
 				SwWindowEv.SwEventType.DEICONIFIED,
@@ -218,7 +212,7 @@ public class SwWindow
 		return this;
 	}
 
-	@SwIntendedCascade public SwWindow listenToWindowDeactivated(@NotNull SwVoidCallback<SwWindowEv> callback)
+	public SwWindow listenToWindowDeactivated(@NotNull SwVoidCallback<SwWindowEv> callback)
 	{
 		addWindowEventSubscriber(
 				SwWindowEv.SwEventType.DEACTIVATED,
