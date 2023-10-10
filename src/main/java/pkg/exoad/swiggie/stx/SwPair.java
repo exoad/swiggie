@@ -33,7 +33,7 @@ import java.lang.ref.WeakReference;
 	private A first;
 	private B second;
 
-	private SwPair(
+	protected SwPair(
 			A first,
 			B second
 	)

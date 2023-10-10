@@ -54,7 +54,7 @@ public class SwWindow
 		);
 	}
 
-	private SwWindow(
+	protected SwWindow(
 			@NotNull String windowName,
 			int width,
 			int height

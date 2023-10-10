@@ -20,7 +20,7 @@ import pkg.exoad.swiggie.SwMaths;
 	private float x;
 	private float y;
 
-	private SwVector2(
+	protected SwVector2(
 			float x,
 			float y
 	)
