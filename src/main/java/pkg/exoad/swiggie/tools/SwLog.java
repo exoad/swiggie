@@ -31,7 +31,10 @@ import java.lang.reflect.InvocationTargetException;
 		return logger;
 	}
 
-	public void emitError(Class<? extends RuntimeException> ref, String reason)
+	public void emitError(
+			Class<? extends RuntimeException> ref,
+			String reason
+	)
 	{
 		RuntimeException e;
 		try
@@ -43,17 +46,26 @@ import java.lang.reflect.InvocationTargetException;
 		{
 			throw new SwUnexpectedReferenceTypingException(
 					"A required constructor of type: [String] was not found for " + ref.getCanonicalName()
-							+ "as a exception reference", err);
+							+ "as a exception reference",
+					err
+			);
 		}
 		if (e != null)
 			throw e;
 		errors.setValue(errors.getValue() + 1);
 	}
 
-	public void emitErrorOn(boolean condition, Class<? extends RuntimeException> ref, String reason)
+	public void emitErrorOn(
+			boolean condition,
+			Class<? extends RuntimeException> ref,
+			String reason
+	)
 	{
 		if (condition)
-			emitError(ref, reason);
+			emitError(
+					ref,
+					reason
+			);
 	}
 
 	private PrintStream stream;
@@ -75,7 +87,10 @@ import java.lang.reflect.InvocationTargetException;
 		this.otherStream = otherStream;
 	}
 
-	public void log(@NonNull LogType key, @NonNull Object content)
+	public void log(
+			@NonNull LogType key,
+			@NonNull Object content
+	)
 	{
 		if (key == LogType.ERR)
 			errors.setValue(errors.getValue() + 1);
@@ -84,11 +99,17 @@ import java.lang.reflect.InvocationTargetException;
 
 	public void debug(@NonNull Object content)
 	{
-		log(LogType.DBG, content);
+		log(
+				LogType.DBG,
+				content
+		);
 	}
 
 	public void error(@NonNull Object content)
 	{
-		log(LogType.ERR, content);
+		log(
+				LogType.ERR,
+				content
+		);
 	}
 }

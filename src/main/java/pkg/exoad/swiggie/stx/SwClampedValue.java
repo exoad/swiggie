@@ -11,9 +11,16 @@ import pkg.exoad.swiggie.intf.SwSilentPipelineMember;
 {
 	private T value;
 
-	private SwClampedValue(@NotNull T value, @NotNull T lower, @NotNull T upper)
+	private SwClampedValue(
+			@NotNull T value,
+			@NotNull T lower,
+			@NotNull T upper
+	)
 	{
-		super(lower, upper);
+		super(
+				lower,
+				upper
+		);
 		this.value = value;
 	}
 
@@ -22,8 +29,16 @@ import pkg.exoad.swiggie.intf.SwSilentPipelineMember;
 		this.value = super.apply(value);
 	}
 
-	public static <M extends Comparable<M>> SwClampedValue<M> acquireValue(M value, M lower, M upper)
+	public static <M extends Comparable<M>> SwClampedValue<M> acquireValue(
+			M value,
+			M lower,
+			M upper
+	)
 	{
-		return new SwClampedValue<>(value, lower, upper);
+		return new SwClampedValue<>(
+				value,
+				lower,
+				upper
+		);
 	}
 }

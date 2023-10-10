@@ -4,7 +4,7 @@ import lombok.*;
 import lombok.experimental.Accessors;
 import pkg.exoad.swiggie.SwColor;
 
-@Getter @Accessors(fluent = true, chain = true ) @Setter @AllArgsConstructor(access = AccessLevel.PRIVATE) @NoArgsConstructor(access = AccessLevel.PRIVATE) public class SwButtonTheme
+@Getter @Accessors(fluent = true, chain = true) @Setter @AllArgsConstructor(access = AccessLevel.PRIVATE) @NoArgsConstructor(access = AccessLevel.PRIVATE) public class SwButtonTheme
 {
 
 	public static SwButtonTheme acquire()

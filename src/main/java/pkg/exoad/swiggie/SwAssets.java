@@ -20,7 +20,7 @@ public class SwAssets
 
 	public static SwAssets acquire()
 	{
-		if(assets == null)
+		if (assets == null)
 			assets = acquire(CacheStrength.WEAK);
 		return assets;
 	}
@@ -39,18 +39,21 @@ public class SwAssets
 
 	public File fetchFile(String path)
 	{
-		if(resourceCache.containsKey(path))
+		if (resourceCache.containsKey(path))
 			return (File) resourceCache.get(path);
 		File i;
 		try
 		{
-			i = new File(Objects.requireNonNull(getClass().getResource(path).getFile()));
-		}
-		catch (NullPointerException e)
+			i = new File(Objects.requireNonNull(getClass().getResource(path)
+			                                              .getFile()));
+		} catch (NullPointerException e)
 		{
 			i = new File(path);
 		}
-		resourceCache.put(path, i);
+		resourceCache.put(
+				path,
+				i
+		);
 		return i;
 	}
 

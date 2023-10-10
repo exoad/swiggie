@@ -1,4 +1,4 @@
-package pkg.exoad.swiggie.stx;
+package pkg.exoad.swiggie.intf;
 
 public interface SwVoidCallback<B>
 {

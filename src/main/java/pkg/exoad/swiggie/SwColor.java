@@ -8,12 +8,25 @@ public class SwColor
 {
 	public static SwClampedValue<Integer> acquireRGBACompliant(int value)
 	{
-		return SwClampedValue.acquireValue(value, MIN_VALUE, MAX_VALUE);
+		return SwClampedValue.acquireValue(
+				value,
+				MIN_VALUE,
+				MAX_VALUE
+		);
 	}
 
-	public static SwColor acquireFromRGB(int r, int g, int b)
+	public static SwColor acquireFromRGB(
+			int r,
+			int g,
+			int b
+	)
 	{
-		return new SwColor(r, g, b, MAX_VALUE);
+		return new SwColor(
+				r,
+				g,
+				b,
+				MAX_VALUE
+		);
 	}
 
 	public static SwColor acquireFromRGB(int rgb)
@@ -21,17 +34,43 @@ public class SwColor
 		int red = (rgb >> 16) & 0xFF;
 		int green = (rgb >> 8) & 0xFF;
 		int blue = rgb & 0xFF;
-		return SwColor.acquireFromRGB(red, green, blue);
+		return SwColor.acquireFromRGB(
+				red,
+				green,
+				blue
+		);
 	}
 
 	public static SwColor acquireFromHEX(String hex)
 	{
 		if (hex.startsWith("#"))
 			hex = hex.substring(1);
-		int red = Integer.parseInt(hex.substring(0, 2), 16);
-		int green = Integer.parseInt(hex.substring(2, 4), 16);
-		int blue = Integer.parseInt(hex.substring(4, 6), 16);
-		return acquireFromRGB(red, green, blue);
+		int red = Integer.parseInt(
+				hex.substring(
+						0,
+						2
+				),
+				16
+		);
+		int green = Integer.parseInt(
+				hex.substring(
+						2,
+						4
+				),
+				16
+		);
+		int blue = Integer.parseInt(
+				hex.substring(
+						4,
+						6
+				),
+				16
+		);
+		return acquireFromRGB(
+				red,
+				green,
+				blue
+		);
 	}
 
 	public static SwColor acquireFromARGB(int argb)
@@ -39,9 +78,19 @@ public class SwColor
 		return new SwColor(argb);
 	}
 
-	public static SwColor acquireFromRGBA(int r, int g, int b, int a)
+	public static SwColor acquireFromRGBA(
+			int r,
+			int g,
+			int b,
+			int a
+	)
 	{
-		return new SwColor(r, g, b, a);
+		return new SwColor(
+				r,
+				g,
+				b,
+				a
+		);
 	}
 
 	public static int MAX_VALUE = 255;
@@ -60,7 +109,12 @@ public class SwColor
 		alpha = acquireRGBACompliant(0);
 	}
 
-	private SwColor(int r, int g, int b, int a)
+	private SwColor(
+			int r,
+			int g,
+			int b,
+			int a
+	)
 	{
 		this.red = acquireRGBACompliant(r);
 		this.green = acquireRGBACompliant(g);

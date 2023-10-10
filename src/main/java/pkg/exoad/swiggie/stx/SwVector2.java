@@ -6,15 +6,24 @@ import pkg.exoad.swiggie.SwMaths;
 
 @Getter @Setter public class SwVector2
 {
-	public static SwVector2 acquire(float x, float y)
+	public static SwVector2 acquire(
+			float x,
+			float y
+	)
 	{
-		return new SwVector2(x, y);
+		return new SwVector2(
+				x,
+				y
+		);
 	}
 
 	private float x;
 	private float y;
 
-	private SwVector2(float x, float y)
+	private SwVector2(
+			float x,
+			float y
+	)
 	{
 		this.x = x;
 		this.y = y;
@@ -25,7 +34,10 @@ import pkg.exoad.swiggie.SwMaths;
 		return (float) Math.sqrt(x * x + y * y);
 	}
 
-	public float distance(float x, float y)
+	public float distance(
+			float x,
+			float y
+	)
 	{
 		return (float) Math.sqrt((x - this.x) * (x - this.x) + (y - this.y) * (y - this.y));
 	}
@@ -35,7 +47,10 @@ import pkg.exoad.swiggie.SwMaths;
 		return (float) Math.sqrt((other.x - this.x) * (other.x - this.x) + (other.y - this.y) * (other.y - this.y));
 	}
 
-	public float cross(float x, float y)
+	public float cross(
+			float x,
+			float y
+	)
 	{
 		return this.x * y - this.y * x;
 	}
@@ -45,7 +60,10 @@ import pkg.exoad.swiggie.SwMaths;
 		return this.x * other.y - this.y * other.x;
 	}
 
-	public SwVector2 subtract(float x, float y)
+	public SwVector2 subtract(
+			float x,
+			float y
+	)
 	{
 		this.x -= x;
 		this.y -= y;
@@ -59,7 +77,10 @@ import pkg.exoad.swiggie.SwMaths;
 		return this;
 	}
 
-	public SwVector2 add(float x, float y)
+	public SwVector2 add(
+			float x,
+			float y
+	)
 	{
 		this.x += x;
 		this.y += y;
@@ -73,7 +94,10 @@ import pkg.exoad.swiggie.SwMaths;
 		return this;
 	}
 
-	public float dot(float x, float y)
+	public float dot(
+			float x,
+			float y
+	)
 	{
 		return this.x * x + this.y * y;
 	}
@@ -85,23 +109,35 @@ import pkg.exoad.swiggie.SwMaths;
 
 	public float angleDegToX()
 	{
-		float e = (float) Math.atan2(y, x) * SwMaths.RAD_TO_DEG;
+		float e = (float) Math.atan2(
+				y,
+				x
+		) * SwMaths.RAD_TO_DEG;
 		return e < 0 ? e + 360 : e;
 	}
 
 	public float angleDegTo(SwVector2 other)
 	{
-		return (float) Math.atan2(cross(other), dot(other)) * SwMaths.RAD_TO_DEG;
+		return (float) Math.atan2(
+				cross(other),
+				dot(other)
+		) * SwMaths.RAD_TO_DEG;
 	}
 
 	public float angleRadToX()
 	{
-		return (float) Math.atan2(y, x);
+		return (float) Math.atan2(
+				y,
+				x
+		);
 	}
 
 	public float angleRadTo(SwVector2 other)
 	{
-		return (float) Math.atan2(cross(other), dot(other));
+		return (float) Math.atan2(
+				cross(other),
+				dot(other)
+		);
 	}
 
 }

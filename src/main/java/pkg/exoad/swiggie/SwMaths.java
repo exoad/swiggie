@@ -3,7 +3,8 @@ package pkg.exoad.swiggie;
 public final class SwMaths
 {
 	private SwMaths()
-	{}
+	{
+	}
 
 	/**
 	 * Factor for converting from Radians to Degrees

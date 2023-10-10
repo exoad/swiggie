@@ -10,28 +10,45 @@ import pkg.exoad.swiggie.tools.SwLog;
 		implements
 		SwSwappable
 {
-	public static SwSize acquire(int width, int height)
+	public static SwSize acquire(
+			int width,
+			int height
+	)
 	{
 		SwLog.getLogger()
-		     .emitErrorOn(width < 0 || height < 0, SwNonCompliantValuesException.class,
-				     "Width and Height of a size constraint cannot be negative! The value must be GREATER THAN OR EQUAL TO 0.");
-		return new SwSize(width, height);
+		     .emitErrorOn(width < 0 || height < 0,
+		                  SwNonCompliantValuesException.class,
+		                  "Width and Height of a size constraint cannot be negative! The value must be GREATER THAN OR EQUAL TO 0."
+		     );
+		return new SwSize(
+				width,
+				height
+		);
 	}
 
 	public static SwSize acquireFromWidth(int width)
 	{
-		return acquire(width, 0);
+		return acquire(
+				width,
+				0
+		);
 	}
 
 	public static SwSize acquireFromHeight(int height)
 	{
-		return acquire(0, height);
+		return acquire(
+				0,
+				height
+		);
 	}
 
 	private int width;
 	private int height;
 
-	private SwSize(int width, int height)
+	private SwSize(
+			int width,
+			int height
+	)
 	{
 		this.width = width;
 		this.height = height;
@@ -49,12 +66,18 @@ import pkg.exoad.swiggie.tools.SwLog;
 
 	public static SwSize withWidth(int width)
 	{
-		return new SwSize(width, Integer.MAX_VALUE);
+		return new SwSize(
+				width,
+				Integer.MAX_VALUE
+		);
 	}
 
 	public static SwSize withHeight(int height)
 	{
-		return new SwSize(Integer.MAX_VALUE, height);
+		return new SwSize(
+				Integer.MAX_VALUE,
+				height
+		);
 	}
 
 	@Override public void swap()

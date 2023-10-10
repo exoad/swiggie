@@ -1,6 +1,6 @@
 package pkg.exoad.swiggie.intf;
 
-public interface SwPipelineMember<A, B>
+public interface SwPipelineMember<B>
 {
-	A call(B b);
+	B apply(B b);
 }

@@ -2,9 +2,8 @@ package pkg.exoad.swiggie.stx;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 
-@Accessors(fluent = true) @Getter @Setter public class SwWrapper<T>
+@Getter @Setter public class SwWrapper<T>
 {
 	public static <T> SwWrapper<T> acquire(T value)
 	{

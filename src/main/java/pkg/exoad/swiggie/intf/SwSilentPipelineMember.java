@@ -2,5 +2,5 @@ package pkg.exoad.swiggie.intf;
 
 public interface SwSilentPipelineMember<T>
 {
-	void call(T value);
+	void apply1(T value);
 }
