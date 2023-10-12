@@ -79,6 +79,15 @@ public final class Swiggie
 		return this;
 	}
 
+	public Swiggie useTelemetry()
+	{
+		launchFlags.put(
+				"swiggie.useTelemetry",
+				"true"
+		);
+		return this;
+	}
+
 	/**
 	 * Use a more hardware accelerated OpenGL Wrapper for Java2D. This is more stable.
 	 *
@@ -104,6 +113,7 @@ public final class Swiggie
 
 	/**
 	 * Whether Swiggie is using a logging framework for debugging purposes
+	 *
 	 * @return Whether Swiggie is using a logging framework for debugging purposes
 	 */
 	public boolean isSwiggieLogging()
@@ -113,6 +123,7 @@ public final class Swiggie
 
 	/**
 	 * Applies all launch flags to the JVM and the Swiggie framework
+	 *
 	 * @return The Swiggie instance
 	 */
 	public Swiggie arm()

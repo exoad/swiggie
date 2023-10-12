@@ -6,39 +6,9 @@ import pkg.exoad.swiggie.SwColor;
 
 @Getter @Accessors(fluent = true, chain = true) @Setter @AllArgsConstructor(access = AccessLevel.PRIVATE) @NoArgsConstructor(access = AccessLevel.PRIVATE) public class SwButtonTheme
 {
-
-	public static SwButtonTheme acquire()
+	public static SwButtonTheme acquire() // we do not provide direct construction
 	{
 		return new SwButtonTheme();
-	}
-
-	public static SwButtonTheme acquire(
-			SwColor focusColor,
-			SwColor highlightColor,
-			SwColor pressedColor,
-			SwColor hoverColor,
-			SwColor disabledFilledColor,
-			SwColor disabledBorderColor,
-			SwColor disabledTextColor,
-			SwColor textColor,
-			SwColor borderColor,
-			SwColor filledColor,
-			SwTextTheme labelTheme
-	)
-	{
-		return new SwButtonTheme(
-				focusColor,
-				highlightColor,
-				pressedColor,
-				hoverColor,
-				disabledFilledColor,
-				disabledBorderColor,
-				disabledTextColor,
-				textColor,
-				borderColor,
-				filledColor,
-				labelTheme
-		);
 	}
 
 	private SwColor focusColor;
@@ -53,5 +23,4 @@ import pkg.exoad.swiggie.SwColor;
 	private SwColor filledColor;
 
 	private SwTextTheme labelTheme;
-
 }
