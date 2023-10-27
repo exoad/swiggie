@@ -2,7 +2,7 @@ package pkg.exoad.swiggie;
 
 import javax.swing.*;
 
-public class SwComponent
+public abstract class SwComponent
 		extends JComponent
 {
 	public enum ComponentPropertyKey
@@ -11,6 +11,8 @@ public class SwComponent
 		OPAQUE,
 
 	}
+
+	abstract void updateVisual();
 
 	public static SwComponent acquire()
 	{
